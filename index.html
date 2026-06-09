@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D&D Buddy</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">⚔ D&D Buddy</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link" data-page="inicio">Início</a>
+        <a href="magias.html" class="nav-link" data-page="magias">Magias</a>
+        <a href="classes.html" class="nav-link" data-page="classes">Classes</a>
+        <a href="especies.html" class="nav-link" data-page="especies">Espécies</a>
+      </div>
+      <a href="#favoritos" class="nav-fav-badge hidden" id="nav-fav-badge">
+        ★ <span class="fav-count">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-title">⚔ D&D Buddy</div>
+    <hr class="hero-divider">
+    <p class="hero-subtitle">Sua referência rápida de regras de Dungeons &amp; Dragons durante a campanha.</p>
+  </div>
+
+  <main>
+    <div class="nav-cards">
+      <a href="magias.html" class="nav-card">
+        <div class="nav-card-icon">✨</div>
+        <div class="nav-card-title">Magias</div>
+        <div class="nav-card-desc">Consulte todas as magias, filtre por classe, escola ou círculo e salve suas favoritas.</div>
+      </a>
+      <a href="classes.html" class="nav-card">
+        <div class="nav-card-icon">🛡</div>
+        <div class="nav-card-title">Classes</div>
+        <div class="nav-card-desc">Veja as habilidades, dado de vida e traços de cada classe do jogo.</div>
+      </a>
+      <a href="especies.html" class="nav-card">
+        <div class="nav-card-icon">🌿</div>
+        <div class="nav-card-title">Espécies</div>
+        <div class="nav-card-desc">Explore os traços raciais e características de cada espécie jogável.</div>
+      </a>
+    </div>
+
+    <section id="favoritos">
+      <h2 class="section-title">★ Favoritos Recentes</h2>
+      <div id="fav-recent-list" class="fav-recent-list"></div>
+    </section>
+  </main>
+
+  <script src="js/utils.js"></script>
+  <script>
+    setActiveNav('inicio');
+    updateNavBadge();
+
+    const TYPE_LABELS = { magias: 'Magia', classes: 'Classe', especies: 'Espécie' };
+    const TYPE_HREFS  = { magias: 'magias.html', classes: 'classes.html', especies: 'especies.html' };
+
+    const favs = getAllFavorites();
+    const items = [];
+    ['magias', 'classes', 'especies'].forEach(type => {
+      (favs[type] || []).slice(0, 5).forEach(slug => {
+        items.push({ type, slug });
+      });
+    });
+
+    const list = document.getElementById('fav-recent-list');
+    if (items.length === 0) {
+      list.innerHTML = `<p style="color: var(--text-muted); font-size: 0.9rem; padding: 8px 0;">
+        Você ainda não tem favoritos. Marque magias, classes ou espécies com ★ para acessá-las aqui.
+      </p>`;
+    } else {
+      list.innerHTML = items.slice(0, 8).map(({ type, slug }) => {
+        const name = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        return `<a href="${TYPE_HREFS[type]}#${slug}" class="fav-recent-item">
+          <span class="fav-recent-item-star">★</span>
+          <span>${name}</span>
+          <span class="fav-recent-item-type">${TYPE_LABELS[type]}</span>
+        </a>`;
+      }).join('');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espécies — D&D Buddy</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">⚔ D&D Buddy</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link" data-page="inicio">Início</a>
+        <a href="magias.html" class="nav-link" data-page="magias">Magias</a>
+        <a href="classes.html" class="nav-link" data-page="classes">Classes</a>
+        <a href="especies.html" class="nav-link" data-page="especies">Espécies</a>
+      </div>
+      <a href="index.html#favoritos" class="nav-fav-badge hidden" id="nav-fav-badge">
+        ★ <span class="fav-count">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <h1 class="page-title">🌿 Espécies</h1>
+    <p class="page-subtitle">Explore traços raciais e características de cada espécie jogável.</p>
+
+    <div class="filters" id="filters">
+      <input type="search" id="search" class="search-input" placeholder="Buscar por nome...">
+      <button id="filter-favs" class="filter-fav-btn">☆ Apenas favoritos</button>
+      <p class="results-count" id="results-count"></p>
+    </div>
+
+    <div class="cards-grid" id="cards-grid">
+      <div class="loading">Carregando espécies <span class="spinner"></span></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Fechar">✕</button>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <div class="modal-badges" id="modal-badges"></div>
+      <hr class="modal-divider">
+      <p class="modal-description" id="modal-description"></p>
+      <div class="modal-stats" id="modal-stats"></div>
+      <div class="modal-tracos" id="modal-tracos"></div>
+      <button class="modal-fav-btn" id="modal-fav-btn"></button>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/especies.js"></script>
+</body>
+</html>

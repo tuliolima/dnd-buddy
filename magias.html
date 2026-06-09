@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magias — D&D Buddy</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">⚔ D&D Buddy</a>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link" data-page="inicio">Início</a>
+        <a href="magias.html" class="nav-link" data-page="magias">Magias</a>
+        <a href="classes.html" class="nav-link" data-page="classes">Classes</a>
+        <a href="especies.html" class="nav-link" data-page="especies">Espécies</a>
+      </div>
+      <a href="index.html#favoritos" class="nav-fav-badge hidden" id="nav-fav-badge">
+        ★ <span class="fav-count">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <h1 class="page-title">✨ Magias</h1>
+    <p class="page-subtitle">Busque e filtre as magias disponíveis. Clique em qualquer card para ver os detalhes completos.</p>
+
+    <div class="filters" id="filters">
+      <input type="search" id="search" class="search-input" placeholder="Buscar por nome...">
+      <select id="filter-circulo" class="filter-select">
+        <option value="">Todos os círculos</option>
+        <option value="0">Truques (Círculo 0)</option>
+        <option value="1">1° Círculo</option>
+        <option value="2">2° Círculo</option>
+        <option value="3">3° Círculo</option>
+        <option value="4">4° Círculo</option>
+        <option value="5">5° Círculo</option>
+        <option value="6">6° Círculo</option>
+        <option value="7">7° Círculo</option>
+        <option value="8">8° Círculo</option>
+        <option value="9">9° Círculo</option>
+      </select>
+      <select id="filter-escola" class="filter-select">
+        <option value="">Todas as escolas</option>
+      </select>
+      <select id="filter-classe" class="filter-select">
+        <option value="">Todas as classes</option>
+      </select>
+      <button id="filter-favs" class="filter-fav-btn">☆ Apenas favoritos</button>
+      <p class="results-count" id="results-count"></p>
+    </div>
+
+    <div class="cards-grid" id="cards-grid">
+      <div class="loading">Carregando magias <span class="spinner"></span></div>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Fechar">✕</button>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <div class="modal-badges" id="modal-badges"></div>
+      <hr class="modal-divider">
+      <p class="modal-description" id="modal-description"></p>
+      <div class="modal-stats" id="modal-stats"></div>
+      <button class="modal-fav-btn" id="modal-fav-btn"></button>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/magias.js"></script>
+</body>
+</html>
