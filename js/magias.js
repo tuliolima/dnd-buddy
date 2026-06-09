@@ -170,7 +170,8 @@ function openModal(spell) {
 function setFavBtn(slug, fav) {
   const btn = document.getElementById('modal-fav-btn');
   btn.className = `modal-fav-btn ${fav ? 'active' : ''}`;
-  btn.innerHTML = `<span>${fav ? '★' : '☆'}</span> ${fav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}`;
+  btn.textContent = fav ? '★' : '☆';
+  btn.title = fav ? 'Remover dos favoritos' : 'Adicionar aos favoritos';
   btn.onclick = () => {
     const added = toggleFavorite('magias', slug);
     setFavBtn(slug, added);

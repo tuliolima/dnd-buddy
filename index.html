@@ -11,13 +11,12 @@
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">⚔ D&D Buddy</a>
       <div class="nav-links">
-        <a href="index.html" class="nav-link" data-page="inicio">Início</a>
         <a href="magias.html" class="nav-link" data-page="magias">Magias</a>
         <a href="classes.html" class="nav-link" data-page="classes">Classes</a>
         <a href="especies.html" class="nav-link" data-page="especies">Espécies</a>
       </div>
-      <a href="#favoritos" class="nav-fav-badge hidden" id="nav-fav-badge">
-        ★ <span class="fav-count">0</span>
+      <a href="favoritos.html" class="nav-fav-badge" id="nav-fav-badge">
+        ★ <span class="fav-count"></span>
       </a>
     </div>
   </nav>
@@ -45,45 +44,18 @@
         <div class="nav-card-title">Espécies</div>
         <div class="nav-card-desc">Explore os traços raciais e características de cada espécie jogável.</div>
       </a>
+      <a href="favoritos.html" class="nav-card">
+        <div class="nav-card-icon">★</div>
+        <div class="nav-card-title">Favoritos</div>
+        <div class="nav-card-desc">Acesse rapidamente os itens que você marcou como favorito.</div>
+      </a>
     </div>
-
-    <section id="favoritos">
-      <h2 class="section-title">★ Favoritos Recentes</h2>
-      <div id="fav-recent-list" class="fav-recent-list"></div>
-    </section>
   </main>
 
   <script src="js/utils.js"></script>
   <script>
     setActiveNav('inicio');
     updateNavBadge();
-
-    const TYPE_LABELS = { magias: 'Magia', classes: 'Classe', especies: 'Espécie' };
-    const TYPE_HREFS  = { magias: 'magias.html', classes: 'classes.html', especies: 'especies.html' };
-
-    const favs = getAllFavorites();
-    const items = [];
-    ['magias', 'classes', 'especies'].forEach(type => {
-      (favs[type] || []).slice(0, 5).forEach(slug => {
-        items.push({ type, slug });
-      });
-    });
-
-    const list = document.getElementById('fav-recent-list');
-    if (items.length === 0) {
-      list.innerHTML = `<p style="color: var(--text-muted); font-size: 0.9rem; padding: 8px 0;">
-        Você ainda não tem favoritos. Marque magias, classes ou espécies com ★ para acessá-las aqui.
-      </p>`;
-    } else {
-      list.innerHTML = items.slice(0, 8).map(({ type, slug }) => {
-        const name = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-        return `<a href="${TYPE_HREFS[type]}#${slug}" class="fav-recent-item">
-          <span class="fav-recent-item-star">★</span>
-          <span>${name}</span>
-          <span class="fav-recent-item-type">${TYPE_LABELS[type]}</span>
-        </a>`;
-      }).join('');
-    }
   </script>
 </body>
 </html>

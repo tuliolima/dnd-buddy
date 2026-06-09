@@ -50,12 +50,8 @@ function updateNavBadge() {
   const total = (favs.magias || []).length + (favs.classes || []).length + (favs.especies || []).length;
   const badge = document.getElementById('nav-fav-badge');
   if (!badge) return;
-  if (total === 0) {
-    badge.classList.add('hidden');
-  } else {
-    badge.classList.remove('hidden');
-    badge.querySelector('.fav-count').textContent = total;
-  }
+  badge.classList.toggle('empty', total === 0);
+  badge.querySelector('.fav-count').textContent = total > 0 ? total : '';
 }
 
 function schoolBadgeClass(escola) {
@@ -89,13 +85,12 @@ function navHTML(activeHref) {
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">⚔ D&amp;D Buddy</a>
         <div class="nav-links">
-          <a href="index.html" class="nav-link" data-page="inicio">Início</a>
           <a href="magias.html" class="nav-link" data-page="magias">Magias</a>
           <a href="classes.html" class="nav-link" data-page="classes">Classes</a>
           <a href="especies.html" class="nav-link" data-page="especies">Espécies</a>
         </div>
-        <a href="index.html#favoritos" class="nav-fav-badge hidden" id="nav-fav-badge">
-          ★ <span class="fav-count">0</span>
+        <a href="favoritos.html" class="nav-fav-badge" id="nav-fav-badge">
+          ★ <span class="fav-count"></span>
         </a>
       </div>
     </nav>

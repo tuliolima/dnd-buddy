@@ -16,17 +16,19 @@ Static D&D rules reference site for use during campaigns. Hosted on GitHub Pages
 
 ```
 /
-├── index.html           # Landing page (navigation + recent favorites)
+├── index.html           # Landing page (navigation cards)
 ├── magias.html          # Spell search/filter page
 ├── classes.html         # Class reference page
 ├── especies.html        # Species reference page
+├── favoritos.html       # Favorites page (all saved items, grouped by type)
 ├── css/
 │   └── style.css        # Single stylesheet — dark D&D theme
 ├── js/
 │   ├── utils.js         # Shared functions: slugify, favorites, nav, badges
 │   ├── magias.js        # Logic exclusive to the spells page
 │   ├── classes.js       # Logic exclusive to the classes page
-│   └── especies.js      # Logic exclusive to the species page
+│   ├── especies.js      # Logic exclusive to the species page
+│   └── favoritos.js     # Logic exclusive to the favorites page
 └── data/
     ├── spells.json      # 366 spells — do not alter the structure
     ├── classes.json     # Created by the user
@@ -116,7 +118,7 @@ Every page follows this HTML structure:
 <script src="js/page-name.js"></script>
 ```
 
-The `<nav>` must be copied verbatim from any existing page. Only the `data-page` attribute on the active link changes per page.
+The `<nav>` must be copied verbatim from any existing page. Only the `data-page` attribute on the active link changes per page. The nav contains three content links (Magias, Classes, Espécies) — the logo navigates home and the `★` badge navigates to Favoritos, so neither needs a duplicate nav link.
 
 ---
 
@@ -163,6 +165,7 @@ Managed by `js/utils.js`. Structure in `localStorage`:
 
 - Key: `dnd-buddy-favorites`
 - New favorites are prepended (`unshift`) — preserves "most recent first" order
+- The nav badge is **always visible** — dimmed (`.empty`) when count is 0, fully gold with count when > 0
 - When adding a new page category, add the corresponding key to the default object in `getFavorites()` and add it to the total count in `updateNavBadge()`
 
 ---
@@ -239,7 +242,7 @@ Managed by `js/utils.js`. Structure in `localStorage`:
 1. Create `data/new-page.json` as an array of objects
 2. Create `new-page.html` — copy the structure from `classes.html`, adjust the title, icon, and `data-page`
 3. Create `js/new-page.js` — follow the module pattern described above
-4. Update the `<nav>` in **all five** existing pages with the new link
+4. Update the `<nav>` in **all six** existing pages with the new link
 5. In `js/utils.js`:
    - Add the new key to the default object in `getFavorites()`
    - Include the new array in the total count in `updateNavBadge()`
