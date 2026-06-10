@@ -1,11 +1,17 @@
 let allSpellData = [];
+let sortOrder = 'alpha';
 
 async function init() {
+  injectModal();
   setActiveNav('favoritos');
   updateNavBadge();
 
   allSpellData = await fetch('data/spells.json').then(r => r.ok ? r.json() : []).catch(() => []);
 
+  document.getElementById('sort-order').addEventListener('change', e => {
+    sortOrder = e.target.value;
+    render();
+  });
   document.getElementById('modal-overlay').addEventListener('click', e => {
     if (e.target === e.currentTarget) closeModal();
   });
@@ -19,6 +25,10 @@ function render() {
   const favs = getAllFavorites();
   const container = document.getElementById('fav-container');
   const magiaItems = matchFavs(favs.magias, allSpellData);
+  magiaItems.sort(sortOrder === 'circulo'
+    ? (a, b) => Number(a.circulo) - Number(b.circulo) || a.nome.localeCompare(b.nome, 'pt-BR')
+    : (a, b) => a.nome.localeCompare(b.nome, 'pt-BR')
+  );
 
   if (magiaItems.length === 0) {
     container.innerHTML = `<div class="empty-state">

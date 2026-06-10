@@ -61,6 +61,10 @@
         <button id="filter-favs" class="filter-fav-btn">
           ☆ Apenas favoritos
         </button>
+        <select id="sort-order" class="filter-select">
+          <option value="alpha">A–Z</option>
+          <option value="circulo">Por círculo</option>
+        </select>
         <p class="results-count" id="results-count"></p>
       </div>
 
@@ -71,33 +75,7 @@
       </div>
     </main>
 
-    <div
-      class="modal-overlay"
-      id="modal-overlay"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
-    >
-      <div class="modal">
-        <button class="modal-close" id="modal-close" aria-label="Fechar">
-          ✕
-        </button>
-        <div class="modal-title-row">
-          <button
-            class="modal-fav-btn"
-            id="modal-fav-btn"
-            aria-label="Favoritar"
-          ></button>
-          <h2 class="modal-title" id="modal-title"></h2>
-        </div>
-        <div class="modal-badges" id="modal-badges"></div>
-        <hr class="modal-divider" />
-        <div class="modal-stats" id="modal-stats"></div>
-        <p class="modal-description" id="modal-description"></p>
-      </div>
-    </div>
-
-    <script src="js/utils.js"></script>
+<script src="js/utils.js"></script>
     <script src="js/magias.js"></script>
   </body>
 </html>

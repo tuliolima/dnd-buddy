@@ -157,16 +157,17 @@ document.addEventListener('DOMContentLoaded', init);
 
 ## Favorites
 
-Managed by `js/utils.js`. Structure in `localStorage`:
+Managed by `js/utils.js`. Favorites are **spells only** — classes and species pages do not have favorites support.
+
+Structure in `localStorage`:
 
 ```json
-{ "magias": ["slug-1", "slug-2"], "classes": [], "especies": [] }
+{ "magias": ["slug-1", "slug-2"] }
 ```
 
 - Key: `dnd-buddy-favorites`
 - New favorites are prepended (`unshift`) — preserves "most recent first" order
 - The nav badge is **always visible** — dimmed (`.empty`) when count is 0, fully gold with count when > 0
-- When adding a new page category, add the corresponding key to the default object in `getFavorites()` and add it to the total count in `updateNavBadge()`
 
 ---
 
@@ -243,10 +244,7 @@ Managed by `js/utils.js`. Structure in `localStorage`:
 2. Create `new-page.html` — copy the structure from `classes.html`, adjust the title, icon, and `data-page`
 3. Create `js/new-page.js` — follow the module pattern described above
 4. Update the `<nav>` in **all six** existing pages with the new link
-5. In `js/utils.js`:
-   - Add the new key to the default object in `getFavorites()`
-   - Include the new array in the total count in `updateNavBadge()`
-6. In `index.html`: add a navigation card in `.nav-cards`
+5. In `index.html`: add a navigation card in `.nav-cards`
 
 ---
 

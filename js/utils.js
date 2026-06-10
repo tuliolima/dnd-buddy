@@ -13,9 +13,9 @@ const FAVORITES_KEY = 'dnd-buddy-favorites';
 
 function getFavorites() {
   try {
-    return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || { magias: [], classes: [], especies: [] };
+    return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || { magias: [] };
   } catch {
-    return { magias: [], classes: [], especies: [] };
+    return { magias: [] };
   }
 }
 
@@ -77,6 +77,25 @@ function setActiveNav(pageName) {
   document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.toggle('active', link.dataset.page === pageName);
   });
+}
+
+function injectModal() {
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal">
+        <button class="modal-close" id="modal-close" aria-label="Fechar">✕</button>
+        <div class="modal-title-row">
+          <h2 class="modal-title" id="modal-title"></h2>
+          <button class="modal-fav-btn" id="modal-fav-btn" aria-label="Favoritar"></button>
+        </div>
+        <div class="modal-badges" id="modal-badges"></div>
+        <hr class="modal-divider">
+        <div class="modal-stats" id="modal-stats"></div>
+        <p class="modal-description" id="modal-description"></p>
+        <div class="modal-tracos" id="modal-tracos"></div>
+      </div>
+    </div>
+  `);
 }
 
 function navHTML(activeHref) {

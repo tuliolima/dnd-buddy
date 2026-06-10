@@ -1,7 +1,9 @@
 let allSpells = [];
 let showOnlyFavorites = false;
+let sortOrder = 'alpha';
 
 async function init() {
+  injectModal();
   setActiveNav('magias');
   updateNavBadge();
 
@@ -46,6 +48,10 @@ async function init() {
   escolaSelect.addEventListener('change', applyFilters);
   document.getElementById('filter-circulo').addEventListener('change', applyFilters);
   classeSelect.addEventListener('change', applyFilters);
+  document.getElementById('sort-order').addEventListener('change', e => {
+    sortOrder = e.target.value;
+    applyFilters();
+  });
   document.getElementById('filter-favs').addEventListener('click', () => {
     showOnlyFavorites = !showOnlyFavorites;
     document.getElementById('filter-favs').classList.toggle('active', showOnlyFavorites);
@@ -83,6 +89,10 @@ function applyFilters() {
     return true;
   });
 
+  filtered.sort(sortOrder === 'circulo'
+    ? (a, b) => Number(a.circulo) - Number(b.circulo) || a.nome.localeCompare(b.nome, 'pt-BR')
+    : (a, b) => a.nome.localeCompare(b.nome, 'pt-BR')
+  );
   renderCards(filtered);
 }
 
