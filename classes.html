@@ -22,34 +22,10 @@
   </nav>
 
   <main>
-    <h1 class="page-title">🛡 Classes</h1>
-    <p class="page-subtitle">Consulte habilidades, traços e características de cada classe.</p>
-
-    <div class="filters" id="filters">
-      <input type="search" id="search" class="search-input" placeholder="Buscar por nome...">
-      <button id="filter-favs" class="filter-fav-btn">☆ Apenas favoritos</button>
-      <p class="results-count" id="results-count"></p>
-    </div>
-
-    <div class="cards-grid" id="cards-grid">
-      <div class="loading">Carregando classes <span class="spinner"></span></div>
-    </div>
+    <h1 class="page-title">⚔ Classes</h1>
+    <p class="page-subtitle">Escolha uma classe para ver suas características, habilidades e subclasses.</p>
+    <div class="class-grid" id="class-grid"></div>
   </main>
-
-  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal">
-      <button class="modal-close" id="modal-close" aria-label="Fechar">✕</button>
-      <div class="modal-title-row">
-        <h2 class="modal-title" id="modal-title"></h2>
-        <button class="modal-fav-btn" id="modal-fav-btn" aria-label="Favoritar"></button>
-      </div>
-      <div class="modal-badges" id="modal-badges"></div>
-      <hr class="modal-divider">
-      <p class="modal-description" id="modal-description"></p>
-      <div class="modal-stats" id="modal-stats"></div>
-      <div class="modal-tracos" id="modal-tracos"></div>
-    </div>
-  </div>
 
   <script src="js/utils.js"></script>
   <script src="js/classes.js"></script>

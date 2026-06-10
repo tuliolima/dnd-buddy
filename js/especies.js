@@ -1,5 +1,4 @@
 let allEspecies = [];
-let showOnlyFavorites = false;
 
 async function init() {
   setActiveNav('especies');
@@ -27,12 +26,6 @@ async function init() {
   }
 
   document.getElementById('search').addEventListener('input', applyFilters);
-  document.getElementById('filter-favs').addEventListener('click', () => {
-    showOnlyFavorites = !showOnlyFavorites;
-    document.getElementById('filter-favs').classList.toggle('active', showOnlyFavorites);
-    document.getElementById('filter-favs').textContent = showOnlyFavorites ? '★ Apenas favoritos' : '☆ Apenas favoritos';
-    applyFilters();
-  });
 
   document.getElementById('modal-overlay').addEventListener('click', e => {
     if (e.target === e.currentTarget) closeModal();
@@ -53,7 +46,6 @@ function applyFilters() {
   const search = document.getElementById('search').value.toLowerCase().trim();
   const filtered = allEspecies.filter(e => {
     if (search && !e.nome.toLowerCase().includes(search)) return false;
-    if (showOnlyFavorites && !isFavorite('especies', slugify(e.nome))) return false;
     return true;
   });
   renderCards(filtered);
@@ -72,16 +64,11 @@ function renderCards(especies) {
 
   grid.innerHTML = '';
   especies.forEach(esp => {
-    const slug = slugify(esp.nome);
-    const fav = isFavorite('especies', slug);
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
       <div class="card-header">
         <div class="card-title">${esp.nome}</div>
-        <button class="fav-btn ${fav ? 'active' : ''}" data-slug="${slug}" title="${fav ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}" aria-label="Favoritar">
-          ${fav ? '★' : '☆'}
-        </button>
       </div>
       <div class="card-badges">
         ${esp.tamanho ? `<span class="badge badge-default">${esp.tamanho}</span>` : ''}
@@ -91,25 +78,13 @@ function renderCards(especies) {
         ? `<div class="card-meta">${esp.tracos.slice(0, 3).map(t => typeof t === 'string' ? t : t.nome).join(' · ')}</div>`
         : ''}
     `;
-    card.addEventListener('click', e => {
-      if (e.target.closest('.fav-btn')) return;
-      openModal(esp);
-    });
-    card.querySelector('.fav-btn').addEventListener('click', e => {
-      e.stopPropagation();
-      const added = toggleFavorite('especies', slug);
-      const btn = e.currentTarget;
-      btn.classList.toggle('active', added);
-      btn.textContent = added ? '★' : '☆';
-      btn.title = added ? 'Remover dos favoritos' : 'Adicionar aos favoritos';
-    });
+    card.addEventListener('click', () => openModal(esp));
     grid.appendChild(card);
   });
 }
 
 function openModal(esp) {
   const slug = slugify(esp.nome);
-  const fav = isFavorite('especies', slug);
 
   document.getElementById('modal-title').textContent = esp.nome;
   document.getElementById('modal-badges').innerHTML = `
@@ -146,26 +121,9 @@ function openModal(esp) {
     tracosEl.innerHTML = '';
   }
 
-  setFavBtn(slug, fav);
   history.replaceState(null, '', `#${slug}`);
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
-}
-
-function setFavBtn(slug, fav) {
-  const btn = document.getElementById('modal-fav-btn');
-  btn.className = `modal-fav-btn ${fav ? 'active' : ''}`;
-  btn.textContent = fav ? '★' : '☆';
-  btn.title = fav ? 'Remover dos favoritos' : 'Adicionar aos favoritos';
-  btn.onclick = () => {
-    const added = toggleFavorite('especies', slug);
-    setFavBtn(slug, added);
-    const cardBtn = document.querySelector(`.fav-btn[data-slug="${slug}"]`);
-    if (cardBtn) {
-      cardBtn.classList.toggle('active', added);
-      cardBtn.textContent = added ? '★' : '☆';
-    }
-  };
 }
 
 function closeModal() {

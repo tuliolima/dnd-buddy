@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classe — D&D Buddy</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">⚔ D&D Buddy</a>
+      <div class="nav-links">
+        <a href="../magias.html" class="nav-link" data-page="magias">Magias</a>
+        <a href="../classes.html" class="nav-link active" data-page="classes">Classes</a>
+        <a href="../especies.html" class="nav-link" data-page="especies">Espécies</a>
+      </div>
+      <a href="../favoritos.html" class="nav-fav-badge" id="nav-fav-badge">
+        ★ <span class="fav-count"></span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <a href="../classes.html" class="back-btn">← Voltar às Classes</a>
+    <div class="class-detail-header" id="class-header" hidden>
+      <span class="class-detail-icon" id="detail-icon"></span>
+      <h1 class="class-detail-name" id="detail-name"></h1>
+    </div>
+    <div class="prose" id="class-content">
+      <div class="loading">Carregando <span class="spinner"></span></div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/classe.js"></script>
+</body>
+</html>

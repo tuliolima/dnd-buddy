@@ -47,7 +47,7 @@ function getAllFavorites() {
 
 function updateNavBadge() {
   const favs = getFavorites();
-  const total = (favs.magias || []).length + (favs.classes || []).length + (favs.especies || []).length;
+  const total = (favs.magias || []).length;
   const badge = document.getElementById('nav-fav-badge');
   if (!badge) return;
   badge.classList.toggle('empty', total === 0);
