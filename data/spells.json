@@ -133,13 +133,13 @@
   },
   {
     "nome": "Aprisionamento",
-    "descricao": "5.000 ou mais PO) Você cria uma restrição mágica para conter uma criatura à sua vista e no alcance da magia. O alvo deve realizar uma salvaguarda de Sabedoria. Em caso de sucesso, o alvo não é afetado e fica imune a esta magia pelas próximas 24 horas. Se falhar, o alvo é aprisionado. Enquanto estiver aprisionado, o alvo não precisa respirar, comer ou beber e não envelhece. Magias de Adivinhação não podem localizar ou perceber o alvo, e ele não pode se teleportar. Até que a magia termine, o alvo também é afetado por um dos seguintes efeitos à sua escolha: Acorrentar. Correntes firmemente enraizadas ao chão prendem o alvo no lugar. O alvo tem a condição Contido e não pode ser movido de forma alguma. Contenção Reduzida. O alvo encolhe para 2,5 cm de altura e fica preso dentro de uma pedra preciosa indestrutível ou um objeto semelhante. A luz pode passar pela pedra preciosa (permitindo que o alvo veja o que há fora e outras criaturas de fora possam vê-lo), mas nada mais pode passar por qualquer meio. Enterrar. O alvo é enterrado sob a terra em um globo oco de força mágica que é grande o suficiente para contê-lo. Nada pode passar para dentro ou para fora do globo. Prisão Cercada. O alvo está preso em um semiplano e está protegido contra teleporte e viagens planares. O semiplano pode ser um labirinto, uma gaiola, uma torre ou algo semelhante à sua escolha. Torpor. O alvo está Inconsciente e não pode ser despertado. Encerrando a Magia. Ao conjurar a magia, você define uma situação que a encerrará. Essa situação pode ser tão simples ou elaborada quanto você desejar, mas o Mestre deve concordar que existe uma grande probabilidade de isso ocorrer na próxima década. A situação deve ser uma ação observável, como alguém fazendo uma oferenda específica no templo do seu deus, salvando seu verdadeiro amor ou derrotando um monstro específico. Dissipar Magia só pode encerrar a magia se for conjurada com um espaço de magia de 9º círculo, tendo como alvo a prisão ou o componente usado para criá-la.",
+    "descricao": "Você cria uma restrição mágica para conter uma criatura à sua vista e no alcance da magia. O alvo deve realizar uma salvaguarda de Sabedoria. Em caso de sucesso, o alvo não é afetado e fica imune a esta magia pelas próximas 24 horas. Se falhar, o alvo é aprisionado. Enquanto estiver aprisionado, o alvo não precisa respirar, comer ou beber e não envelhece. Magias de Adivinhação não podem localizar ou perceber o alvo, e ele não pode se teleportar. Até que a magia termine, o alvo também é afetado por um dos seguintes efeitos à sua escolha: Acorrentar. Correntes firmemente enraizadas ao chão prendem o alvo no lugar. O alvo tem a condição Contido e não pode ser movido de forma alguma. Contenção Reduzida. O alvo encolhe para 2,5 cm de altura e fica preso dentro de uma pedra preciosa indestrutível ou um objeto semelhante. A luz pode passar pela pedra preciosa (permitindo que o alvo veja o que há fora e outras criaturas de fora possam vê-lo), mas nada mais pode passar por qualquer meio. Enterrar. O alvo é enterrado sob a terra em um globo oco de força mágica que é grande o suficiente para contê-lo. Nada pode passar para dentro ou para fora do globo. Prisão Cercada. O alvo está preso em um semiplano e está protegido contra teleporte e viagens planares. O semiplano pode ser um labirinto, uma gaiola, uma torre ou algo semelhante à sua escolha. Torpor. O alvo está Inconsciente e não pode ser despertado. Encerrando a Magia. Ao conjurar a magia, você define uma situação que a encerrará. Essa situação pode ser tão simples ou elaborada quanto você desejar, mas o Mestre deve concordar que existe uma grande probabilidade de isso ocorrer na próxima década. A situação deve ser uma ação observável, como alguém fazendo uma oferenda específica no templo do seu deus, salvando seu verdadeiro amor ou derrotando um monstro específico. Dissipar Magia só pode encerrar a magia se for conjurada com um espaço de magia de 9º círculo, tendo como alvo a prisão ou o componente usado para criá-la.",
     "circulo": "9",
     "escola": "Abjuração",
     "classes": "Bruxo, Mago",
     "tempo_conjuracao": "1 minuto",
     "alcance": "9 metros",
-    "componentes": "V, S, M (uma estatueta do alvo no valor de",
+    "componentes": "V, S, M (uma estatueta do alvo no valor de 5.000 ou mais PO)",
     "duracao": "Até ser dissipada"
   },
   {
@@ -309,13 +309,13 @@
   },
   {
     "nome": "Aura Sagrada",
-    "descricao": "1.000 ou mais PO) Pela duração, você emite uma aura em uma Emanação de 9 metros. Enquanto estão dentro da aura, criaturas à sua escolha têm Vantagem em todas as salvaguardas, enquanto as outras têm Desvantagem nas jogadas de ataque contra elas. Além disso, se um Ínfero ou um Morto-Vivo atinge uma criatura afetada em uma jogada de ataque corpo a corpo, o atacante deve ser bem-sucedido em uma salvaguarda de Constituição ou fica Cego até o final do próximo turno dele.",
+    "descricao": "Pela duração, você emite uma aura em uma Emanação de 9 metros. Enquanto estão dentro da aura, criaturas à sua escolha têm Vantagem em todas as salvaguardas, enquanto as outras têm Desvantagem nas jogadas de ataque contra elas. Além disso, se um Ínfero ou um Morto-Vivo atinge uma criatura afetada em uma jogada de ataque corpo a corpo, o atacante deve ser bem-sucedido em uma salvaguarda de Constituição ou fica Cego até o final do próximo turno dele.",
     "circulo": "8",
     "escola": "Abjuração",
     "classes": "Clérigo",
     "tempo_conjuracao": "Ação",
     "alcance": "Pessoal",
-    "componentes": "V, S, M (um relicário no valor de",
+    "componentes": "V, S, M (um relicário no valor de 1.000 ou mais PO)",
     "duracao": "Concentração, até 1 minuto"
   },
   {
@@ -1189,88 +1189,88 @@
   },
   {
     "nome": "Destruição Atordoante",
-    "descricao": "imediatamente após atingir uma criatura com uma arma Corpo a Corpo ou um Ataque Desarmado O alvo sofre 4d6 pontos de dano Psíquico adicionais do ataque e deve ser bem-sucedido em uma salvaguarda de Sabedoria ou tem a condição Atordoado até o final do seu próximo turno. dano adicional aumenta em 1d6 para cada círculo de espaço de magia acima de 4.",
+    "descricao": "O alvo sofre 4d6 pontos de dano Psíquico adicionais do ataque e deve ser bem-sucedido em uma salvaguarda de Sabedoria ou tem a condição Atordoado até o final do seu próximo turno. dano adicional aumenta em 1d6 para cada círculo de espaço de magia acima de 4.",
     "circulo": "4",
     "escola": "Encantamento",
     "classes": "Paladino",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após atingir uma criatura com uma arma Corpo a Corpo ou um Ataque Desarmado",
     "alcance": "Pessoal",
     "componentes": "V",
     "duracao": "Instantânea"
   },
   {
     "nome": "Destruição Banidora",
-    "descricao": "imediatamente após atingir uma criatura com uma arma Corpo a Corpo ou um Ataque Desarmado O alvo atingido pela jogada de ataque sofre um adicional de 5d10 pontos de dano Energético do ataque. Se o ataque reduzir o alvo a 50 Pontos de Vida ou menos, o alvo deve ser bem-sucedido em uma salvaguarda de Carisma ou é transportado para um semiplano inofensivo pela duração da magia. Enquanto estiver lá, o alvo tem a condição Incapacitado. Quando a magia termina, o alvo reaparece no espaço que deixou ou no espaço desocupado mais próximo se esse espaço estiver ocupado. 270  7 |",
+    "descricao": "O alvo atingido pela jogada de ataque sofre um adicional de 5d10 pontos de dano Energético do ataque. Se o ataque reduzir o alvo a 50 Pontos de Vida ou menos, o alvo deve ser bem-sucedido em uma salvaguarda de Carisma ou é transportado para um semiplano inofensivo pela duração da magia. Enquanto estiver lá, o alvo tem a condição Incapacitado. Quando a magia termina, o alvo reaparece no espaço que deixou ou no espaço desocupado mais próximo se esse espaço estiver ocupado. 270  7 |",
     "circulo": "5",
     "escola": "Invocação",
     "classes": "Paladino",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após atingir uma criatura com uma arma Corpo a Corpo ou um Ataque Desarmado",
     "alcance": "Pessoal",
     "componentes": "V",
     "duracao": "Concentração, até 1 minuto"
   },
   {
     "nome": "Destruição Cauterizante",
-    "descricao": "imediatamente após acertar um alvo com uma arma Corpo a Corpo ou um Ataque Desarmado Ao acertar o alvo, o ataque causa 1d6 pontos de dano Ígneo adicional. No início de cada turno do alvo, até que a magia termine, ele sofre 1d6 pontos de dano Ígneo e, então, realiza uma salvaguarda de Constituição. Se falhar, a magia continua; se for bem-sucedido, a magia se encerra. Todo dano aumenta em 1d6 para cada círculo de espaço de magia acima de 1.",
+    "descricao": "Ao acertar o alvo, o ataque causa 1d6 pontos de dano Ígneo adicional. No início de cada turno do alvo, até que a magia termine, ele sofre 1d6 pontos de dano Ígneo e, então, realiza uma salvaguarda de Constituição. Se falhar, a magia continua; se for bem-sucedido, a magia se encerra. Todo dano aumenta em 1d6 para cada círculo de espaço de magia acima de 1.",
     "circulo": "1",
     "escola": "Evocação",
     "classes": "Paladino",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após acertar um alvo com uma arma Corpo a Corpo ou um Ataque Desarmado",
     "alcance": "Pessoal",
     "componentes": "V",
     "duracao": "1 minuto"
   },
   {
     "nome": "Destruição Cegante",
-    "descricao": "imediatamente após atingir uma criatura com uma arma Corpo a Corpo ou um Ataque Desarmado O alvo atingido pelo ataque sofre 3d8 pontos de dano Radiante adicionais e tem a condição Cego até que a magia termine. No final de cada um dos turnos dele, o alvo Cego realiza uma salvaguarda de Constituição, encerrando a magia em caso de sucesso. dano adicional aumenta em 1d8 para cada círculo de espaço de magia acima de 3.",
+    "descricao": "O alvo atingido pelo ataque sofre 3d8 pontos de dano Radiante adicionais e tem a condição Cego até que a magia termine. No final de cada um dos turnos dele, o alvo Cego realiza uma salvaguarda de Constituição, encerrando a magia em caso de sucesso. dano adicional aumenta em 1d8 para cada círculo de espaço de magia acima de 3.",
     "circulo": "3",
     "escola": "Evocação",
     "classes": "Paladino",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após atingir uma criatura com uma arma Corpo a Corpo ou um Ataque Desarmado",
     "alcance": "Pessoal",
     "componentes": "V",
     "duracao": "1 minuto"
   },
   {
     "nome": "Destruição Colérica",
-    "descricao": "imediatamente após atingir uma criatura com uma arma Corpo a Corpo ou um Ataque Desarmado O alvo sofre 1d6 pontos de dano Necrótico adicionais do ataque e deve ser bem-sucedido em uma salvaguarda de Sabedoria ou tem a condição Amedrontado até que a magia termine. No final de cada um dos turnos dele, o alvo Amedrontado repete a salvaguarda, encerrando a magia em caso de sucesso. dano aumenta em 1d6 pontos para cada círculo de espaço de magia acima de 1.",
+    "descricao": "O alvo sofre 1d6 pontos de dano Necrótico adicionais do ataque e deve ser bem-sucedido em uma salvaguarda de Sabedoria ou tem a condição Amedrontado até que a magia termine. No final de cada um dos turnos dele, o alvo Amedrontado repete a salvaguarda, encerrando a magia em caso de sucesso. dano aumenta em 1d6 pontos para cada círculo de espaço de magia acima de 1.",
     "circulo": "1",
     "escola": "Necromancia",
     "classes": "Paladino",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após atingir uma criatura com uma arma Corpo a Corpo ou um Ataque Desarmado",
     "alcance": "Pessoal",
     "componentes": "V",
     "duracao": "1 minuto"
   },
   {
     "nome": "Destruição Divina",
-    "descricao": "imediatamente após acertar um alvo com uma arma Corpo a Corpo ou um Ataque Desarmado O alvo sofre 2d8 pontos de dano Radiante adicionais do ataque. O dano aumenta em 1d8 se o alvo for um Ínfero ou um Morto-vivo. dano aumenta em 1d8 para cada círculo de espaço de magia acima de 1.",
+    "descricao": "O alvo sofre 2d8 pontos de dano Radiante adicionais do ataque. O dano aumenta em 1d8 se o alvo for um Ínfero ou um Morto-vivo. dano aumenta em 1d8 para cada círculo de espaço de magia acima de 1.",
     "circulo": "1",
     "escola": "Evocação",
     "classes": "Paladino",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após acertar um alvo com uma arma Corpo a Corpo ou um Ataque Desarmado",
     "alcance": "Pessoal",
     "componentes": "V",
     "duracao": "Instantânea"
   },
   {
     "nome": "Destruição Estrondosa",
-    "descricao": "imediatamente após acertar um alvo com uma arma Corpo a Corpo ou um Ataque Desarmado Seu ataque soa como um trovão audível a até 90 metros de você, e o alvo sofre 2d6 pontos de dano Trovejante adicionais do ataque. Além disso, se o alvo Uma anã Paladina fortalece sua arma com Destruição Divina, desencadeando a ira sagrada em ínferos Mezzoloths. for uma criatura, ele deve ser bem-sucedido em uma salvaguarda de Força ou é empurrado 3 metros para longe de você e tem a condição Caído. dano aumenta em 1d6 pontos para cada círculo de espaço de magia acima de 1.",
+    "descricao": "Seu ataque soa como um trovão audível a até 90 metros de você, e o alvo sofre 2d6 pontos de dano Trovejante adicionais do ataque. Além disso, se o alvo Uma anã Paladina fortalece sua arma com Destruição Divina, desencadeando a ira sagrada em ínferos Mezzoloths. for uma criatura, ele deve ser bem-sucedido em uma salvaguarda de Força ou é empurrado 3 metros para longe de você e tem a condição Caído. dano aumenta em 1d6 pontos para cada círculo de espaço de magia acima de 1.",
     "circulo": "1",
     "escola": "Evocação",
     "classes": "Paladino",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após acertar um alvo com uma arma Corpo a Corpo ou um Ataque Desarmado",
     "alcance": "Pessoal",
     "componentes": "V",
     "duracao": "Instantânea"
   },
   {
     "nome": "Destruição Radiante",
-    "descricao": "imediatamente após atingir uma criatura com uma arma Corpo a Corpo ou um Ataque Desarmado O alvo atingido pelo ataque sofre um adicional de 2d6 pontos de dano Radiante. Até que a magia termine, o alvo emite Luz Plena em um raio de 1,5 metro, e jogadas de ataque contra ele têm Vantagem e ele não pode se beneficiar da condição Invisível. dano aumenta em 1d6 para cada círculo de espaço de magia acima de 2. 7 |  271",
+    "descricao": "O alvo atingido pelo ataque sofre um adicional de 2d6 pontos de dano Radiante. Até que a magia termine, o alvo emite Luz Plena em um raio de 1,5 metro, e jogadas de ataque contra ele têm Vantagem e ele não pode se beneficiar da condição Invisível. dano aumenta em 1d6 para cada círculo de espaço de magia acima de 2. 7 |  271",
     "circulo": "2",
     "escola": "Transmutação",
     "classes": "Paladino",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após atingir uma criatura com uma arma Corpo a Corpo ou um Ataque Desarmado",
     "alcance": "Pessoal",
     "componentes": "V",
     "duracao": "Concentração, até 1 minuto"
@@ -1596,13 +1596,13 @@
   },
   {
     "nome": "Espada de Mordenkainen",
-    "descricao": "250 ou mais PO) Você cria uma espada espectral que fica suspensa no alcance da magia. Ela permanece pela duração da magia. Quando a espada aparece, você realiza um ataque mágico corpo a corpo contra um alvo a até 1,5 metro da espada. Em um acerto, o alvo sofre um dano Energético igual a 4d12 mais o seu modificador de atributo de conjuração. Nos turnos seguintes, você pode executar uma Ação Bônus para mover a espada até 9 metros para um ponto à sua vista e repetir o ataque contra o mesmo alvo ou um diferente.",
+    "descricao": "Você cria uma espada espectral que fica suspensa no alcance da magia. Ela permanece pela duração da magia. Quando a espada aparece, você realiza um ataque mágico corpo a corpo contra um alvo a até 1,5 metro da espada. Em um acerto, o alvo sofre um dano Energético igual a 4d12 mais o seu modificador de atributo de conjuração. Nos turnos seguintes, você pode executar uma Ação Bônus para mover a espada até 9 metros para um ponto à sua vista e repetir o ataque contra o mesmo alvo ou um diferente.",
     "circulo": "7",
     "escola": "Evocação",
     "classes": "Bardo, Mago",
     "tempo_conjuracao": "Ação",
     "alcance": "27 metros",
-    "componentes": "V, S, M (uma espada em miniatura no valor de",
+    "componentes": "V, S, M (uma espada em miniatura no valor de 250 ou mais PO)",
     "duracao": "Concentração, até 1 minuto"
   },
   {
@@ -1750,11 +1750,11 @@
   },
   {
     "nome": "Flecha Relâmpago",
-    "descricao": "imediatamente após atingir ou errar um alvo com um ataque à distância usando uma arma O ousado Mago Melf mira em um troll furioso com a Flecha Ácida de Melf. Quando seu ataque atinge ou erra o alvo, a arma ou munição que você está usando se transforma em um relâmpago. Em vez de sofrer qualquer dano ou outros efeitos do ataque, o alvo sofre 4d8 pontos de dano Elétrico em um acerto ou metade desse dano em um erro. Cada criatura em um raio de 3 metros do alvo deve então realizar uma salvaguarda de Destreza, sofrendo 2d8 pontos de dano Elétrico se falhar ou metade desse dano em caso de sucesso. A arma ou munição retorna então à sua forma normal. dano para ambos os efeitos da magia aumenta em 1d8 para cada círculo de espaço de magia acima de 3.",
+    "descricao": "O ousado Mago Melf mira em um troll furioso com a Flecha Ácida de Melf. Quando seu ataque atinge ou erra o alvo, a arma ou munição que você está usando se transforma em um relâmpago. Em vez de sofrer qualquer dano ou outros efeitos do ataque, o alvo sofre 4d8 pontos de dano Elétrico em um acerto ou metade desse dano em um erro. Cada criatura em um raio de 3 metros do alvo deve então realizar uma salvaguarda de Destreza, sofrendo 2d8 pontos de dano Elétrico se falhar ou metade desse dano em caso de sucesso. A arma ou munição retorna então à sua forma normal. dano para ambos os efeitos da magia aumenta em 1d8 para cada círculo de espaço de magia acima de 3.",
     "circulo": "3",
     "escola": "Transmutação",
     "classes": "Guardião",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após atingir ou errar um alvo com um ataque à distância usando uma arma",
     "alcance": "Pessoal",
     "componentes": "V, S",
     "duracao": "Instantânea"
@@ -1882,11 +1882,11 @@
   },
   {
     "nome": "Golpe Constritor",
-    "descricao": "imediatamente após atingir uma criatura com uma arma Ao acertar o alvo, vinhas agarradoras aparecem nele e ele realiza uma salvaguarda de Força. Uma criatura Grande ou maior tem Vantagem nesta salvaguarda. Se falhar, o alvo está com a condição Contido até que a magia termine. Em caso de sucesso, as videiras murcham e a magia se encerra. Enquanto Contido desse modo, o alvo sofre 1d6 pontos de dano Perfurante no início de cada um dos turnos dele. O alvo ou uma criatura ao alcance dele pode executar uma ação para realizar um teste de Força (Atletismo) contra a CD para evitar sua magia. Em caso de sucesso, as videiras desaparecem. dano aumenta em 1d6 pontos para cada círculo de espaço de magia acima de 1.",
+    "descricao": "Ao acertar o alvo, vinhas agarradoras aparecem nele e ele realiza uma salvaguarda de Força. Uma criatura Grande ou maior tem Vantagem nesta salvaguarda. Se falhar, o alvo está com a condição Contido até que a magia termine. Em caso de sucesso, as videiras murcham e a magia se encerra. Enquanto Contido desse modo, o alvo sofre 1d6 pontos de dano Perfurante no início de cada um dos turnos dele. O alvo ou uma criatura ao alcance dele pode executar uma ação para realizar um teste de Força (Atletismo) contra a CD para evitar sua magia. Em caso de sucesso, as videiras desaparecem. dano aumenta em 1d6 pontos para cada círculo de espaço de magia acima de 1.",
     "circulo": "1",
     "escola": "Invocação",
     "classes": "Guardião",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após atingir uma criatura com uma arma",
     "alcance": "Pessoal",
     "componentes": "V",
     "duracao": "Concentração, até 1 minuto"
@@ -3224,13 +3224,13 @@
   },
   {
     "nome": "Projetar Imagem",
-    "descricao": "5 ou mais PO) Você cria uma cópia ilusória de si mesmo que dura enquanto a magia estiver ativa. A cópia pode surgir em qualquer lugar que você já tenha visto e que esteja no alcance da magia, ignorando obstáculos. A ilusão se parece e soa como você, mas é intangível. Se a ilusão sofrer qualquer dano, ela desaparece e a magia se encerra. Você pode ver através dos olhos da ilusão e ouvir através dos ouvidos dela, como se você estivesse no espaço dela. Com uma ação Usar Magia, você pode movê-la até 18 metros e fazer com que ela gesticule, fale e se comporte da maneira que desejar. Ela imita seus maneirismos perfeitamente. Interação física com a imagem revela sua natureza ilusória, já que objetos podem atravessá-la. Uma criatura que executa a ação Analisar para examinar a imagem pode determinar que se trata de uma ilusão com um teste bem-sucedido de Inteligência (Investigação) contra a CD para evitar sua magia. Se uma criatura perceber a ilusão, ela pode ver através da imagem, e qualquer som que a ilusão emita parece vago para essa criatura.",
+    "descricao": "Você cria uma cópia ilusória de si mesmo que dura enquanto a magia estiver ativa. A cópia pode surgir em qualquer lugar que você já tenha visto e que esteja no alcance da magia, ignorando obstáculos. A ilusão se parece e soa como você, mas é intangível. Se a ilusão sofrer qualquer dano, ela desaparece e a magia se encerra. Você pode ver através dos olhos da ilusão e ouvir através dos ouvidos dela, como se você estivesse no espaço dela. Com uma ação Usar Magia, você pode movê-la até 18 metros e fazer com que ela gesticule, fale e se comporte da maneira que desejar. Ela imita seus maneirismos perfeitamente. Interação física com a imagem revela sua natureza ilusória, já que objetos podem atravessá-la. Uma criatura que executa a ação Analisar para examinar a imagem pode determinar que se trata de uma ilusão com um teste bem-sucedido de Inteligência (Investigação) contra a CD para evitar sua magia. Se uma criatura perceber a ilusão, ela pode ver através da imagem, e qualquer som que a ilusão emita parece vago para essa criatura.",
     "circulo": "7",
     "escola": "Ilusão",
     "classes": "Bardo, Mago",
     "tempo_conjuracao": "Ação",
     "alcance": "800 quilômetros",
-    "componentes": "V, S, M (uma estatueta de si mesmo no valor de",
+    "componentes": "V, S, M (uma estatueta de si mesmo no valor de 5 ou mais PO)",
     "duracao": "Concentração, até 1 dia"
   },
   {
@@ -3719,11 +3719,11 @@
   },
   {
     "nome": "Saraivada de Espinhos",
-    "descricao": "imediatamente após atingir uma criatura com um ataque com arma à Distância Ao atingir uma criatura, essa magia faz surgir uma chuva de espinhos a partir da sua arma à distância ou munição. O alvo e cada criatura em um raio de 1,5 metro devem realizar uma salvaguarda de Destreza, sofrendo 1d10 pontos de dano perfurante se falharem ou metade desse dano em caso de sucesso. dano aumenta em 1d10 para cada círculo de espaço de magia acima de 1.",
+    "descricao": "Ao atingir uma criatura, essa magia faz surgir uma chuva de espinhos a partir da sua arma à distância ou munição. O alvo e cada criatura em um raio de 1,5 metro devem realizar uma salvaguarda de Destreza, sofrendo 1d10 pontos de dano perfurante se falharem ou metade desse dano em caso de sucesso. dano aumenta em 1d10 para cada círculo de espaço de magia acima de 1.",
     "circulo": "1",
     "escola": "Invocação",
     "classes": "Guardião",
-    "tempo_conjuracao": "Ação Bônus, que você realiza",
+    "tempo_conjuracao": "Ação Bônus, que você realiza imediatamente após atingir uma criatura com um ataque com arma à Distância",
     "alcance": "Pessoal",
     "componentes": "V",
     "duracao": "Instantânea"
