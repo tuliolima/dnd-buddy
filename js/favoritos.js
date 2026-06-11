@@ -92,7 +92,7 @@ function openModal(spell) {
     <span class="badge ${isTruque ? 'badge-circulo-0' : 'badge-circulo'}">${circuloLabel(spell.circulo)}</span>
     <span class="badge ${schoolBadgeClass(spell.escola)}">${spell.escola}</span>
   `;
-  document.getElementById('modal-description').textContent = spell.descricao || '';
+  document.getElementById('modal-description').innerHTML = renderText(spell.descricao);
 
   const fields = [
     ['Tempo de Conjuração', spell.tempo_conjuracao],
