@@ -3,7 +3,7 @@ let sortOrder = 'alpha';
 
 async function init() {
   injectModal();
-  setActiveNav('favoritos');
+  setActiveNav('favorites');
   updateNavBadge();
 
   allSpellData = await fetch('data/spells.json').then(r => r.ok ? r.json() : []).catch(() => []);
@@ -24,13 +24,13 @@ async function init() {
 function render() {
   const favs = getAllFavorites();
   const container = document.getElementById('fav-container');
-  const magiaItems = matchFavs(favs.magias, allSpellData);
-  magiaItems.sort(sortOrder === 'circulo'
+  const spellItems = matchFavs(favs.spells, allSpellData);
+  spellItems.sort(sortOrder === 'circulo'
     ? (a, b) => Number(a.circulo) - Number(b.circulo) || a.nome.localeCompare(b.nome, 'pt-BR')
     : (a, b) => a.nome.localeCompare(b.nome, 'pt-BR')
   );
 
-  if (magiaItems.length === 0) {
+  if (spellItems.length === 0) {
     container.innerHTML = `<div class="empty-state">
       <div class="empty-state-icon">★</div>
       <h3>Nenhum favorito ainda</h3>
@@ -44,7 +44,7 @@ function render() {
   section.className = 'fav-section';
   const grid = document.createElement('div');
   grid.className = 'cards-grid';
-  magiaItems.forEach(item => grid.appendChild(buildCard(item)));
+  spellItems.forEach(item => grid.appendChild(buildCard(item)));
   section.innerHTML = '<h2 class="section-title">Magias</h2>';
   section.appendChild(grid);
   container.appendChild(section);
@@ -66,7 +66,7 @@ function buildCard(spell) {
       <button class="fav-btn active" data-slug="${slug}" title="Remover dos favoritos" aria-label="Remover dos favoritos">★</button>
     </div>
     <div class="card-badges">
-      <span class="badge ${isTruque ? 'badge-circulo-0' : 'badge-circulo'}">${circuloLabel(spell.circulo)}</span>
+      <span class="badge ${isTruque ? 'badge-circulo-0' : 'badge-circulo'}">${spellLevelLabel(spell.circulo)}</span>
       <span class="badge ${schoolBadgeClass(spell.escola)}">${spell.escola}</span>
     </div>
     ${spell.classes ? `<div class="card-meta">${spell.classes}</div>` : ''}
@@ -77,7 +77,7 @@ function buildCard(spell) {
   });
   card.querySelector('.fav-btn').addEventListener('click', e => {
     e.stopPropagation();
-    toggleFavorite('magias', slug);
+    toggleFavorite('spells', slug);
     render();
   });
   return card;
@@ -89,7 +89,7 @@ function openModal(spell) {
 
   document.getElementById('modal-title').textContent = spell.nome;
   document.getElementById('modal-badges').innerHTML = `
-    <span class="badge ${isTruque ? 'badge-circulo-0' : 'badge-circulo'}">${circuloLabel(spell.circulo)}</span>
+    <span class="badge ${isTruque ? 'badge-circulo-0' : 'badge-circulo'}">${spellLevelLabel(spell.circulo)}</span>
     <span class="badge ${schoolBadgeClass(spell.escola)}">${spell.escola}</span>
   `;
   document.getElementById('modal-description').innerHTML = renderText(spell.descricao);
@@ -117,13 +117,13 @@ function openModal(spell) {
 }
 
 function setFavBtn(slug) {
-  const fav = isFavorite('magias', slug);
+  const fav = isFavorite('spells', slug);
   const btn = document.getElementById('modal-fav-btn');
   btn.className = `modal-fav-btn ${fav ? 'active' : ''}`;
   btn.textContent = fav ? '★' : '☆';
   btn.title = fav ? 'Remover dos favoritos' : 'Adicionar aos favoritos';
   btn.onclick = () => {
-    toggleFavorite('magias', slug);
+    toggleFavorite('spells', slug);
     setFavBtn(slug);
     render();
   };

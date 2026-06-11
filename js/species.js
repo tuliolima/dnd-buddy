@@ -1,26 +1,26 @@
-let allEspecies = [];
+let allSpecies = [];
 
 async function init() {
-  setActiveNav('especies');
+  setActiveNav('species');
   updateNavBadge();
 
   const grid = document.getElementById('cards-grid');
 
   try {
-    const res = await fetch('data/especies.json');
+    const res = await fetch('data/species.json');
     if (!res.ok) throw new Error('Arquivo não encontrado.');
-    allEspecies = await res.json();
+    allSpecies = await res.json();
   } catch (e) {
     grid.innerHTML = emptyState('⚠️', 'Erro ao carregar espécies', e.message);
     return;
   }
 
-  if (allEspecies.length === 0) {
+  if (allSpecies.length === 0) {
     document.getElementById('filters').style.display = 'none';
     grid.innerHTML = emptyState(
       '🌿',
       'Nenhuma espécie cadastrada ainda',
-      `Crie o arquivo <code>data/especies.json</code> seguindo o schema da documentação e adicione suas espécies.`
+      `Crie o arquivo <code>data/species.json</code> seguindo o schema da documentação e adicione suas espécies.`
     );
     return;
   }
@@ -37,24 +37,24 @@ async function init() {
 
   const hash = window.location.hash.slice(1);
   if (hash) {
-    const esp = allEspecies.find(e => slugify(e.nome) === hash);
-    if (esp) openModal(esp);
+    const sp = allSpecies.find(e => slugify(e.nome) === hash);
+    if (sp) openModal(sp);
   }
 }
 
 function applyFilters() {
   const search = document.getElementById('search').value.toLowerCase().trim();
-  const filtered = allEspecies.filter(e => {
-    if (search && !e.nome.toLowerCase().includes(search)) return false;
+  const filtered = allSpecies.filter(sp => {
+    if (search && !sp.nome.toLowerCase().includes(search)) return false;
     return true;
   });
   renderCards(filtered);
 }
 
-function renderCards(especies) {
+function renderCards(species) {
   const grid = document.getElementById('cards-grid');
   const countEl = document.getElementById('results-count');
-  const n = especies.length;
+  const n = species.length;
   countEl.textContent = `${n} espécie${n !== 1 ? 's' : ''} encontrada${n !== 1 ? 's' : ''}`;
 
   if (n === 0) {
@@ -63,39 +63,39 @@ function renderCards(especies) {
   }
 
   grid.innerHTML = '';
-  especies.forEach(esp => {
+  species.forEach(sp => {
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
       <div class="card-header">
-        <div class="card-title">${esp.nome}</div>
+        <div class="card-title">${sp.nome}</div>
       </div>
       <div class="card-badges">
-        ${esp.tamanho ? `<span class="badge badge-default">${esp.tamanho}</span>` : ''}
-        ${esp.deslocamento ? `<span class="badge badge-circulo">${esp.deslocamento}</span>` : ''}
+        ${sp.tamanho ? `<span class="badge badge-default">${sp.tamanho}</span>` : ''}
+        ${sp.deslocamento ? `<span class="badge badge-circulo">${sp.deslocamento}</span>` : ''}
       </div>
-      ${esp.tracos && esp.tracos.length > 0
-        ? `<div class="card-meta">${esp.tracos.slice(0, 3).map(t => typeof t === 'string' ? t : t.nome).join(' · ')}</div>`
+      ${sp.tracos && sp.tracos.length > 0
+        ? `<div class="card-meta">${sp.tracos.slice(0, 3).map(t => typeof t === 'string' ? t : t.nome).join(' · ')}</div>`
         : ''}
     `;
-    card.addEventListener('click', () => openModal(esp));
+    card.addEventListener('click', () => openModal(sp));
     grid.appendChild(card);
   });
 }
 
-function openModal(esp) {
-  const slug = slugify(esp.nome);
+function openModal(sp) {
+  const slug = slugify(sp.nome);
 
-  document.getElementById('modal-title').textContent = esp.nome;
+  document.getElementById('modal-title').textContent = sp.nome;
   document.getElementById('modal-badges').innerHTML = `
-    ${esp.tamanho ? `<span class="badge badge-default">${esp.tamanho}</span>` : ''}
-    ${esp.deslocamento ? `<span class="badge badge-circulo">Deslocamento: ${esp.deslocamento}</span>` : ''}
+    ${sp.tamanho ? `<span class="badge badge-default">${sp.tamanho}</span>` : ''}
+    ${sp.deslocamento ? `<span class="badge badge-circulo">Deslocamento: ${sp.deslocamento}</span>` : ''}
   `;
-  document.getElementById('modal-description').textContent = esp.descricao || '';
+  document.getElementById('modal-description').textContent = sp.descricao || '';
 
   const statFields = [
-    ['Tamanho', esp.tamanho],
-    ['Deslocamento', esp.deslocamento],
+    ['Tamanho', sp.tamanho],
+    ['Deslocamento', sp.deslocamento],
   ];
   document.getElementById('modal-stats').innerHTML = statFields
     .filter(([, v]) => v)
@@ -106,19 +106,19 @@ function openModal(esp) {
       </div>
     `).join('');
 
-  const tracos = esp.tracos || [];
-  const tracosEl = document.getElementById('modal-tracos');
-  if (tracos.length > 0) {
-    tracosEl.innerHTML = `
+  const traits = sp.tracos || [];
+  const traitsEl = document.getElementById('modal-tracos');
+  if (traits.length > 0) {
+    traitsEl.innerHTML = `
       <hr class="modal-divider">
       <p class="modal-tracos-title">Traços Raciais</p>
-      ${tracos.map(t => typeof t === 'string'
+      ${traits.map(t => typeof t === 'string'
         ? `<div class="modal-traco"><div class="modal-traco-desc">• ${t}</div></div>`
         : `<div class="modal-traco"><div class="modal-traco-nome">${t.nome}</div><div class="modal-traco-desc">${t.descricao}</div></div>`
       ).join('')}
     `;
   } else {
-    tracosEl.innerHTML = '';
+    traitsEl.innerHTML = '';
   }
 
   history.replaceState(null, '', `#${slug}`);

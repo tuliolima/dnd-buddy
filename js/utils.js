@@ -13,9 +13,9 @@ const FAVORITES_KEY = 'dnd-buddy-favorites';
 
 function getFavorites() {
   try {
-    return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || { magias: [] };
+    return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || { spells: [] };
   } catch {
-    return { magias: [] };
+    return { spells: [] };
   }
 }
 
@@ -47,14 +47,14 @@ function getAllFavorites() {
 
 function updateNavBadge() {
   const favs = getFavorites();
-  const total = (favs.magias || []).length;
+  const total = (favs.spells || []).length;
   const badge = document.getElementById('nav-fav-badge');
   if (!badge) return;
   badge.classList.toggle('empty', total === 0);
   badge.querySelector('.fav-count').textContent = total > 0 ? total : '';
 }
 
-function schoolBadgeClass(escola) {
+function schoolBadgeClass(school) {
   const map = {
     'abjuração': 'badge-abjuracao',
     'adivinhação': 'badge-adivinhacao',
@@ -65,12 +65,12 @@ function schoolBadgeClass(escola) {
     'necromancia': 'badge-necromancia',
     'transmutação': 'badge-transmutacao',
   };
-  return map[(escola || '').toLowerCase()] || 'badge-default';
+  return map[(school || '').toLowerCase()] || 'badge-default';
 }
 
-function circuloLabel(circulo) {
-  if (String(circulo) === '0') return 'Truque';
-  return `${circulo}° Círculo`;
+function spellLevelLabel(level) {
+  if (String(level) === '0') return 'Truque';
+  return `${level}° Círculo`;
 }
 
 function setActiveNav(pageName) {
@@ -114,11 +114,11 @@ function navHTML(activeHref) {
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">⚔ D&amp;D Buddy</a>
         <div class="nav-links">
-          <a href="magias.html" class="nav-link" data-page="magias">Magias</a>
+          <a href="spells.html" class="nav-link" data-page="spells">Magias</a>
           <a href="classes.html" class="nav-link" data-page="classes">Classes</a>
-          <a href="especies.html" class="nav-link" data-page="especies">Espécies</a>
+          <a href="species.html" class="nav-link" data-page="species">Espécies</a>
         </div>
-        <a href="favoritos.html" class="nav-fav-badge" id="nav-fav-badge">
+        <a href="favorites.html" class="nav-fav-badge" id="nav-fav-badge">
           ★ <span class="fav-count"></span>
         </a>
       </div>

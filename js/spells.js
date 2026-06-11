@@ -4,7 +4,7 @@ let sortOrder = 'alpha';
 
 async function init() {
   injectModal();
-  setActiveNav('magias');
+  setActiveNav('spells');
   updateNavBadge();
 
   const grid = document.getElementById('cards-grid');
@@ -18,36 +18,34 @@ async function init() {
     return;
   }
 
-  // Populate escola filter
-  const escolas = [...new Set(allSpells.map(s => s.escola).filter(Boolean))].sort();
-  const escolaSelect = document.getElementById('filter-escola');
-  escolas.forEach(e => {
+  const schools = [...new Set(allSpells.map(s => s.escola).filter(Boolean))].sort();
+  const schoolSelect = document.getElementById('filter-school');
+  schools.forEach(s => {
     const opt = document.createElement('option');
-    opt.value = e;
-    opt.textContent = e;
-    escolaSelect.appendChild(opt);
+    opt.value = s;
+    opt.textContent = s;
+    schoolSelect.appendChild(opt);
   });
 
-  // Populate classe filter
-  const classeSet = new Set();
+  const classSet = new Set();
   allSpells.forEach(s => {
     (s.classes || '').split(',').forEach(c => {
       const t = c.trim();
-      if (t) classeSet.add(t);
+      if (t) classSet.add(t);
     });
   });
-  const classeSelect = document.getElementById('filter-classe');
-  [...classeSet].sort().forEach(c => {
+  const classSelect = document.getElementById('filter-class');
+  [...classSet].sort().forEach(c => {
     const opt = document.createElement('option');
     opt.value = c;
     opt.textContent = c;
-    classeSelect.appendChild(opt);
+    classSelect.appendChild(opt);
   });
 
   document.getElementById('search').addEventListener('input', applyFilters);
-  escolaSelect.addEventListener('change', applyFilters);
-  document.getElementById('filter-circulo').addEventListener('change', applyFilters);
-  classeSelect.addEventListener('change', applyFilters);
+  schoolSelect.addEventListener('change', applyFilters);
+  document.getElementById('filter-level').addEventListener('change', applyFilters);
+  classSelect.addEventListener('change', applyFilters);
   document.getElementById('sort-order').addEventListener('change', e => {
     sortOrder = e.target.value;
     applyFilters();
@@ -76,16 +74,16 @@ async function init() {
 
 function applyFilters() {
   const search = document.getElementById('search').value.toLowerCase().trim();
-  const escola = document.getElementById('filter-escola').value;
-  const circulo = document.getElementById('filter-circulo').value;
-  const classe = document.getElementById('filter-classe').value;
+  const school = document.getElementById('filter-school').value;
+  const level = document.getElementById('filter-level').value;
+  const cls = document.getElementById('filter-class').value;
 
   const filtered = allSpells.filter(s => {
     if (search && !s.nome.toLowerCase().includes(search)) return false;
-    if (escola && s.escola !== escola) return false;
-    if (circulo && String(s.circulo) !== circulo) return false;
-    if (classe && !(s.classes || '').split(',').map(c => c.trim()).includes(classe)) return false;
-    if (showOnlyFavorites && !isFavorite('magias', slugify(s.nome))) return false;
+    if (school && s.escola !== school) return false;
+    if (level && String(s.circulo) !== level) return false;
+    if (cls && !(s.classes || '').split(',').map(c => c.trim()).includes(cls)) return false;
+    if (showOnlyFavorites && !isFavorite('spells', slugify(s.nome))) return false;
     return true;
   });
 
@@ -110,7 +108,7 @@ function renderCards(spells) {
   grid.innerHTML = '';
   spells.forEach(spell => {
     const slug = slugify(spell.nome);
-    const fav = isFavorite('magias', slug);
+    const fav = isFavorite('spells', slug);
     const isTruque = String(spell.circulo) === '0';
     const card = document.createElement('div');
     card.className = 'card';
@@ -122,7 +120,7 @@ function renderCards(spells) {
         </button>
       </div>
       <div class="card-badges">
-        <span class="badge ${isTruque ? 'badge-circulo-0' : 'badge-circulo'}">${circuloLabel(spell.circulo)}</span>
+        <span class="badge ${isTruque ? 'badge-circulo-0' : 'badge-circulo'}">${spellLevelLabel(spell.circulo)}</span>
         <span class="badge ${schoolBadgeClass(spell.escola)}">${spell.escola}</span>
       </div>
       <div class="card-meta">${spell.classes || ''}</div>
@@ -133,7 +131,7 @@ function renderCards(spells) {
     });
     card.querySelector('.fav-btn').addEventListener('click', e => {
       e.stopPropagation();
-      const added = toggleFavorite('magias', slug);
+      const added = toggleFavorite('spells', slug);
       const btn = e.currentTarget;
       btn.classList.toggle('active', added);
       btn.textContent = added ? '★' : '☆';
@@ -145,12 +143,12 @@ function renderCards(spells) {
 
 function openModal(spell) {
   const slug = slugify(spell.nome);
-  const fav = isFavorite('magias', slug);
+  const fav = isFavorite('spells', slug);
   const isTruque = String(spell.circulo) === '0';
 
   document.getElementById('modal-title').textContent = spell.nome;
   document.getElementById('modal-badges').innerHTML = `
-    <span class="badge ${isTruque ? 'badge-circulo-0' : 'badge-circulo'}">${circuloLabel(spell.circulo)}</span>
+    <span class="badge ${isTruque ? 'badge-circulo-0' : 'badge-circulo'}">${spellLevelLabel(spell.circulo)}</span>
     <span class="badge ${schoolBadgeClass(spell.escola)}">${spell.escola}</span>
   `;
   document.getElementById('modal-description').innerHTML = renderText(spell.descricao);
@@ -183,7 +181,7 @@ function setFavBtn(slug, fav) {
   btn.textContent = fav ? '★' : '☆';
   btn.title = fav ? 'Remover dos favoritos' : 'Adicionar aos favoritos';
   btn.onclick = () => {
-    const added = toggleFavorite('magias', slug);
+    const added = toggleFavorite('spells', slug);
     setFavBtn(slug, added);
     const cardBtn = document.querySelector(`.fav-btn[data-slug="${slug}"]`);
     if (cardBtn) {

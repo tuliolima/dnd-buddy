@@ -1,16 +1,16 @@
 const CLASS_META = {
-  barbaro:    { name: 'Bárbaro',    icon: '🪓' },
-  bardo:      { name: 'Bardo',      icon: '🎵' },
-  bruxo:      { name: 'Bruxo',      icon: '🔮' },
-  clerigo:    { name: 'Clérigo',    icon: '✦'  },
-  druida:     { name: 'Druida',     icon: '🌿' },
-  feiticeiro: { name: 'Feiticeiro', icon: '✨' },
-  guardiao:   { name: 'Guardião',   icon: '🏹' },
-  guerreiro:  { name: 'Guerreiro',  icon: '🛡' },
-  ladino:     { name: 'Ladino',     icon: '🗡' },
-  mago:       { name: 'Mago',       icon: '📚' },
-  monge:      { name: 'Monge',      icon: '☯'  },
-  paladino:   { name: 'Paladino',   icon: '⚔'  },
+  barbarian: { name: 'Bárbaro',    icon: '🪓' },
+  bard:      { name: 'Bardo',      icon: '🎵' },
+  warlock:   { name: 'Bruxo',      icon: '🔮' },
+  cleric:    { name: 'Clérigo',    icon: '✦'  },
+  druid:     { name: 'Druida',     icon: '🌿' },
+  sorcerer:  { name: 'Feiticeiro', icon: '✨' },
+  ranger:    { name: 'Guardião',   icon: '🏹' },
+  fighter:   { name: 'Guerreiro',  icon: '🛡' },
+  rogue:     { name: 'Ladino',     icon: '🗡' },
+  wizard:    { name: 'Mago',       icon: '📚' },
+  monk:      { name: 'Monge',      icon: '☯'  },
+  paladin:   { name: 'Paladino',   icon: '⚔'  },
 };
 
 async function init() {
